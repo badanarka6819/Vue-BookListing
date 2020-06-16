@@ -36,6 +36,6 @@
  }
  li{
      display: block;
-     margin: o 10px;
+     margin: 0 10px;
  }
 </style>
