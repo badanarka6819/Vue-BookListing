@@ -1,8 +1,8 @@
 <template>
     <form action="#" method="post">
-        <input type="text" name="title" value="" placeholder="Book Title">
-        <input type="text" name="author" value="" placeholder="Book Author">
-        <button type="submit" name="button">Add Book</button>
+        <input type="text" name="title" value="" placeholder="Book Title" v-model="bookTitle">
+        <input type="text" name="author" value="" placeholder="Book Author" v-model="bookAuthor">
+        <button type="submit" name="button" @click.prevent="bookSubmit()">Add Book</button>
     </form>
 </template>
 
@@ -24,8 +24,8 @@
             }
         },
         methods: {
-            bookSubmit(bookTitle, bookAuthor) {
-                
+            bookSubmit: function(bookTitle, bookAuthor) {
+               this.$emit('addBook',bookTitle,bookAuthor); 
             }
         },
     }
