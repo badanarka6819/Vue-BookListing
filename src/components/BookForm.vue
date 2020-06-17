@@ -1,8 +1,8 @@
 <template>
-    <form action="#" method="post">
-        <input type="text" name="title" value="" placeholder="Book Title" v-model="bookTitle">
-        <input type="text" name="author" value="" placeholder="Book Author" v-model="bookAuthor">
-        <button type="submit" name="button" @click.prevent="bookSubmit()">Add Book</button>
+    <form v-on:submit.prevent="bookSubmit(bookTitle,bookAuthor)" action="#" method="post">
+        <input v-model="bookTitle" type="text" name="title" value="" placeholder="Book Title" v-model="bookTitle">
+        <input v-model="bookAuthor" type="text" name="author" value="" placeholder="Book Author" v-model="bookAuthor">
+        <button type="submit" name="button" >Add Book</button>
     </form>
 </template>
 
@@ -12,15 +12,8 @@
         props: ['books'],
         data:{
             return: {
-              bookTitle:
-              {
-                type: String,
-                default: '',
-              },
-              bookAuthor:{
-                type: String,
-                default: '',
-              },
+              bookTitle:'',
+              bookAuthor:'',
             }
         },
         methods: {
